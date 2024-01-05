@@ -1,0 +1,50 @@
+//FONT SIZES
+$head1: 3.815rem;
+$head2: 3.052rem;
+$head3: 2.441rem;
+$head4: 1.953rem;
+$head5: 1.563rem;
+$head6: 1.25rem;
+$parasize: 1rem;
+$parasmall: 0.8rem;
+$paracomment: 0.64rem;
+
+//FONTS
+//RULE: font-family: 'Noto Sans Georgian', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100;200;300;400;700&display=swap');
+
+h1{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head1;
+    
+}
+h2{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head2;
+    
+}
+h3{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head3;
+    
+}
+h4{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head4;
+    
+}
+h5{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head5;
+    
+}
+h6{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $head6;
+    
+}
+p{
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: $parasize;
+    
+}
