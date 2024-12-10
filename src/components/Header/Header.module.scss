@@ -1,0 +1,49 @@
+.container{
+    width: 100vw;
+    // background-color: blue;
+    display: flex;
+    
+}
+.innerContainer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 80vh;
+    
+    // background-color: red;
+    padding-left:  6rem;
+    width: 60%;
+    
+}
+.hakdog{
+    font-size: 8vw;
+    
+}
+.cta{
+    position: absolute;
+    bottom: 6rem;
+    right: 5rem;
+    border: none;
+    border-radius: 40px;
+    padding: 1rem 2rem;
+    background-color: #615EFF;
+    color:white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cta:hover{
+    background-color: red;
+}
+
+.cta:focus,
+.cta:active{
+    background-color: white;
+    color: #615EFF;
+}
+.ctaContainer{
+    // background-color: pink;
+    width: 40%;
+    position:relative;
+}

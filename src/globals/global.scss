@@ -9,6 +9,14 @@ $parasize: 1rem;
 $parasmall: 0.8rem;
 $paracomment: 0.64rem;
 
+//COLORS
+$textwhite: white;
+$bgcolor: #181716;
+$portred: #F55454;
+$portindigo: #615EFF;
+$portgreen: #44FF78;
+$portpink: #EF5DA8;
+
 //FONTS
 //RULE: font-family: 'Noto Sans Georgian', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100;200;300;400;700&display=swap');
@@ -16,35 +24,44 @@ $paracomment: 0.64rem;
 h1{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head1;
-    
+    color: $textwhite;
 }
 h2{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head2;
-    
+    color: $textwhite;
 }
 h3{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head3;
-    
+    color: $textwhite;
 }
 h4{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head4;
-    
+    color: $textwhite;
 }
 h5{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head5;
-    
+    color: $textwhite;
 }
 h6{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $head6;
-    
+    color: $textwhite;
+}
+
+.gridHeader{
+    font-size: $head3;
+    color: black;
 }
 p{
     font-family: 'Noto Sans Georgian', sans-serif;
     font-size: $parasize;
-    
+    color: $textwhite;
+}
+body{
+    background-color: $bgcolor;
+    margin: 0;
 }
