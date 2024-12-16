@@ -13,19 +13,23 @@ function App() {
 
   return (
     <div className='canvas'>
-      <Navbar />
-
-    <Header />
-     <ProjectSectionHeader />
+      <div className='navbar'>
+        <Navbar />
+      </div>
+  
+      <div className='header'>
+        <Header />
+      </div>
+      
+      <ProjectSectionHeader />
       {/* <div className="second">
         <h2>Hello im patrick</h2>
       </div> */}
       <ProjectContainerSection />
       <AboutmeSection />
-      
-      
     </div>
   )
+  
 }
 
 export default App

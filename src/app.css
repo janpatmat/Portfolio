@@ -7,3 +7,18 @@
 body{
     overflow-x: hidden;
 }
+
+.canvas {
+    position: relative; /* Ensures that positioned elements within the canvas are positioned relative to this container */
+  }
+  
+  .navbar {
+    position: relative; /* Positions navbar relative to its normal position */
+    z-index: 2; /* Higher z-index makes it appear in front */
+  }
+  
+  .header {
+    position: relative; /* Or absolute/fixed depending on your layout */
+    z-index: 1; /* Lower z-index makes it appear behind the navbar */
+  }
+  
