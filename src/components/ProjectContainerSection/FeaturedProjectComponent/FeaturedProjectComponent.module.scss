@@ -4,6 +4,9 @@
     border-style: solid;
     border-color: gray;
     width: 80%;
+    margin: 1rem;
+    flex-direction: column;
+    
 }
 
 .detailSection{
@@ -12,10 +15,59 @@
     width: 50%;
     padding: 4rem;
 }
-.pictureSection{
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    
-    width: 50%;
+.picover{
+    padding: 1rem;
 }
+.pictureSection {
+   
+    display: flex;
+    justify-content: center;   /* Centers the image horizontally */
+    align-items: center;       /* Centers the image vertically */
+    
+    width: 100%;               /* Make sure the section takes the full width */
+    height: 100%;              /* Make sure the section takes the full height */
+    max-width: 100%;           /* Prevent image from overflowing */
+    max-height: 100%;          /* Prevent image from overflowing */
+  
+    overflow: hidden;          /* Hide any overflow content */
+  }
+  
+  .pictureSection img {
+    width: 100%;               /* Make the image scale to the container */
+    height: 100%;              /* Make the image scale to the container */
+    object-fit: contain;       /* Make sure the whole image is visible */
+   
+  }
+  
+
+  .buttonContainer {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .projectButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  .projectButton:hover {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .disabledButton {
+    background-color: #d9534f;  // Red color for the disabled button
+    color: white;
+    cursor: not-allowed;  // Show a not-allowed cursor to indicate it's disabled
+  }
+  
+  .disabledButton:hover {
+    background-color: #c9302c;  // Darker red on hover for the disabled button
+  }
+  
+  

@@ -1,0 +1,74 @@
+[
+    {
+      "title": "Dominus",
+      "description": "Created a RESTful API that allowed for seamless integration with other applications using VueJS and Laravel, while also deploying the website through a dedicate VPS",
+      "contributionTitle": "My Contribution",
+      "contribution": "Full Stack Developer: I was in charge of working on the baptism and communion module. I was also incharge in deploying the website in the cloud private server",
+      "functionTitle": "Function",
+      "functionDescription": "It is a sacramental database for a church in Mati. Not only it records sacraments but it also displays churches within the archdiocese and the schedule of the masses",
+      "imageAlt": "Screenshot of the Cool Project",
+      "imageUrl": "dominus.png",
+      "url": "https://dominus.arisenlab.org/"
+    },
+    {
+      "title": "Zenith Solutions",
+      "description": "A static front end website that was used to showcase Zenith Solutions, a company based in New Jersey",
+      "contributionTitle": "Role",
+      "contribution": "Front end developer: I was a front end developer however I also handled the hosting of the website using GoDaddy",
+      "functionTitle": "Purpose",
+      "functionDescription": "To showcase the zenith solutions company",
+      "imageAlt": "UI snapshot of Another Project",
+      "imageUrl": "zen.png",
+      "url": "https://zensolgroup.com/"
+      
+    },
+
+    {
+      "title": "SAMAHAN WEBSITE SY 22-23",
+      "description": "The requires a website for the student government of their school that would provide information about the organization and their events. They also wanted a dedicated web page for the freshmen students. The website should follow the current theme of the student government in terms of color, vibe, and fonts.",
+      "contributionTitle": "Role",
+      "contribution": "Front end developer: I was a front end developer since it was a front end static website",
+      "functionTitle": "Purpose",
+      "functionDescription": "To showcase the student org of our school and all its works and advocacies",
+      "imageAlt": "UI snapshot of Another Project",
+      "imageUrl": "samahasn.png",
+      "url": "https://samahan.addu.edu.ph/"
+    },
+
+    {
+      "title": "SAMAHAN CONSTI-NATIN-TO PLEBISCITE",
+      "description": "The Plebiscite was simply a website that asks for the opinions of the user of the proposed amendments of the school. With a simple design and the use of a database, we were able to achieve the website",
+      "contributionTitle": "Role",
+      "contribution": "Front end developer: I was a front end developer however the website has a backend integration with firebase alongside axios",
+      "functionTitle": "Purpose",
+      "functionDescription": "To collect the votes of the students in the new constitution through the plebiscite",
+      "imageAlt": "UI snapshot of Another Project",
+      "imageUrl": "Consti.png",
+      "url": "https://tinyurl.com/Constinatinto2023"
+    },
+
+    {
+      "title": "CAFE KLANG WEBSITE DEPLOYMENT (AWS)",
+      "description": "This was a side project, it utilized a multiple ec2 instances that connected to one another in order to have the front end and backend work together with the use of load balancers and aws",
+      "contributionTitle": "Role",
+      "contribution": "Devops Trainee: I handled the deployment of the website using an EC2 instance in AWS",
+      "functionTitle": "Purpose",
+      "functionDescription": "To understand the concept of AWS and how security groups works and load balancers",
+      "imageAlt": "UI snapshot of Another Project",
+      "imageUrl": "cafe.png",
+      "url": ""
+    },
+
+    {
+      "title": "SADYA 2022 WEBSITE",
+      "description": "The project is about developing a website that would serve as a single source of information about Ateneo de Davao University Fiesta 2022, featuring details such as the schedule, programs, and venue. Furthermore, the website should showcase the events taking place each day, along with a live feed of tweets related to the event, and registration links for various activities. The website has been taken down due to the limit of hosted websites",
+      "contributionTitle": "Role",
+      "contribution": "Front end developer: I was a front end developer since the website was only a static website",
+      "functionTitle": "Purpose",
+      "functionDescription": "To showcase the events of the sadya2022 in ateneo",
+      "imageAlt": "UI snapshot of Another Project",
+      "imageUrl": "sadya.png",
+      "url": ""
+    }
+  ]
+  

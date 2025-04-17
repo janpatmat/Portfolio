@@ -7,7 +7,7 @@ const Header = () => {
         <div className={styles.container}>
           <div className={styles.innerContainer}>
             <Roll>
-            <h1 className={styles.hakdog}>Lets turn your THOUGHTS into RESULTS</h1>
+            <h1 className={styles.hakdog}>Hi I'm Patrick!</h1>
             </Roll>
             </div>
           <div className={styles.ctaContainer}>

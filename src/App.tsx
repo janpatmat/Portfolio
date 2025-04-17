@@ -13,9 +13,9 @@ function App() {
 
   return (
     <div className='canvas'>
-      <div className='navbar'>
+      {/* <div className='navbar'>
         <Navbar />
-      </div>
+      </div> */}
   
       <div className='header'>
         <Header />
