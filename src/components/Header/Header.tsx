@@ -12,7 +12,7 @@ const Header = () => {
             </div>
           <div className={styles.ctaContainer}>
            <a href="public\jan-patrick-matayabas-cv.pdf" download>
-  <button className={styles.cta}>Contact me</button>
+  <button className={styles.cta}>Downlaod my CV</button>
 </a>
 
           </div>
