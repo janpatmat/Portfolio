@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from './AboutmeSection.module.scss'
 const AboutmeSection = () => {
   return (

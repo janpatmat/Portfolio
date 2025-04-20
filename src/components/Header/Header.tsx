@@ -1,6 +1,6 @@
-import React from 'react'
+
 import styles from './Header.module.scss'
-import { Roll, Fade } from 'react-awesome-reveal'
+import { Roll } from 'react-awesome-reveal'
 const Header = () => {
   return (
     <div>

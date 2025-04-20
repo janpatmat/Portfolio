@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styles from './ProjectContainerSection.module.scss';
 import FeaturedProjectComponent from './FeaturedProjectComponent/FeaturedProjectComponent';
 import projectData from '../../data/projectData.json';

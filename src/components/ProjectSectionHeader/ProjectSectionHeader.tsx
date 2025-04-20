@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from './ProjectSectionHeader.module.scss'
 import { Fade } from 'react-awesome-reveal'
 const ProjectSectionHeader = () => {
