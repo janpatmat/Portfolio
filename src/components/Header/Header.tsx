@@ -11,8 +11,8 @@ const Header = () => {
             </Roll>
             </div>
           <div className={styles.ctaContainer}>
-           <a href="public\jan-patrick-matayabas-cv.pdf" download>
-  <button className={styles.cta}>Downlaod my CV</button>
+           <a href="public\Matayabas-Resume-2025.pdf" download>
+  <button className={styles.cta}>Download my CV</button>
 </a>
 
           </div>
