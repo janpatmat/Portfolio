@@ -1,73 +1,128 @@
-.container{
-    display: flex;
-    border: 4px;
-    border-style: solid;
-    border-color: gray;
-    width: 80%;
-    margin: 1rem;
+/* Global reset for box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 4px solid gray;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  width: 80%;
+
+  overflow: hidden;
+
+  @media (max-width: 768px) {
     flex-direction: column;
-    
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+  }
 }
 
-.detailSection{
-    
-    
-    width: 50%;
-    padding: 4rem;
-}
-.picover{
+.detailSection {
+  flex: 1;
+  padding: 4rem;
+  color: #222;
+
+  h1, h4 {
+    margin-bottom: 1rem;
+   
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (max-width: 480px) {
     padding: 1rem;
+    p {
+      font-size: 0.95rem;
+    }
+  }
 }
+
+.picover {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
 .pictureSection {
-   
-    display: flex;
-    justify-content: center;   /* Centers the image horizontally */
-    align-items: center;       /* Centers the image vertically */
-    
-    width: 100%;               /* Make sure the section takes the full width */
-    height: 100%;              /* Make sure the section takes the full height */
-    max-width: 100%;           /* Prevent image from overflowing */
-    max-height: 100%;          /* Prevent image from overflowing */
-  
-    overflow: hidden;          /* Hide any overflow content */
-  }
-  
-  .pictureSection img {
-    width: 100%;               /* Make the image scale to the container */
-    height: 100%;              /* Make the image scale to the container */
-    object-fit: contain;       /* Make sure the whole image is visible */
-   
-  }
-  
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .buttonContainer {
-    padding: 1rem;
-    text-align: center;
+  img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    @media (max-width: 768px) {
+      max-width: 400px;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 300px;
+    }
   }
-  
-  .projectButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border: none;
-  }
-  
-  .projectButton:hover {
+}
+
+.buttonContainer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.projectButton {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  &:hover {
     background-color: #0056b3;
-    color: white;
     font-weight: bold;
   }
-  
-  .disabledButton {
-    background-color: #d9534f;  // Red color for the disabled button
-    color: white;
-    cursor: not-allowed;  // Show a not-allowed cursor to indicate it's disabled
+}
+
+.disabledButton {
+  background-color: #d9534f;
+  color: white;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: #c9302c;
   }
-  
-  .disabledButton:hover {
-    background-color: #c9302c;  // Darker red on hover for the disabled button
-  }
-  
-  
+}
