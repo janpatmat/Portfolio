@@ -22,17 +22,17 @@ const Header = () => {
             
             <div className={styles.iconRow}>
             <Fade delay={2000} cascade>
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/jan-patrick-matayabas-a75a31245/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className={styles.icon} />
           </a>
         
          
-          <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/janpatmat" target="_blank" rel="noopener noreferrer">
             <FaGithub className={styles.icon} />
           </a>
           
           
-          <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/janpatrick.matayabas" target="_blank" rel="noopener noreferrer">
             <FaFacebook className={styles.icon} />
           </a>
           </Fade>
