@@ -18,14 +18,17 @@ There is no test runner. `npm run build` and `npm run lint` are the available ch
 
 ## Architecture
 
-`src/main.tsx` mounts a `BrowserRouter` with a single `/` route to `src/App.tsx`, which stacks the page sections in order: `Header`, `ProjectSectionHeader`, `ProjectContainerSection`, `AboutmeSection`. `src/pages/LandingPage` and `src/components/ProjectsCardGrid` are placeholders that nothing renders.
+`src/main.tsx` mounts a `BrowserRouter` with a single `/` route to `src/App.tsx`, which stacks the page sections in order. `Header` is the hero section; the fixed navigation is `Navbar`, whose links target each section's `id`. `src/pages/LandingPage` and `src/components/ProjectsCardGrid` are placeholders that nothing renders.
+
+`src/data/links.ts` holds the CV URL, contact details, and social profiles, which the hero, contact section, and footer share. Work history lives in `src/data/experienceData.json`, which `ExperienceSection` renders.
 
 ### Project content is data-driven
 
-To add or change a portfolio project, edit `src/data/projectData.json`, not the components. `ProjectContainerSection` maps over that array and renders a `FeaturedProjectComponent` for each entry.
+To add or change a portfolio project, edit `src/data/projectData.json`, not the components. `ProjectContainerSection` renders a `FeaturedProjectComponent` card for each entry, and the hero's project count comes from the array's length.
 
-- `imageUrl` is a bare filename in `src/assets/`, resolved with `new URL(..., import.meta.url)`. Filenames are case-sensitive on Linux, so they must match exactly.
-- An empty `url` renders a disabled "Website is no longer up" button instead of the "Visit Project" link.
+- `imageUrl` is a bare filename in `src/assets/`, resolved with `new URL(..., import.meta.url)`. Filenames are case-sensitive on Linux, so they must match exactly. An empty value renders an icon placeholder.
+- `category` drives the project filter tabs, which are generated from the values present in the data.
+- An empty `url` hides the "Visit Project" link. Set `"offline": true` to show "Website is no longer up" instead.
 
 ### Base path
 
@@ -36,8 +39,9 @@ Files in `public/` are copied to the root of `dist/`, so at runtime they live un
 ### Styling
 
 - Each component has a co-located `*.module.scss` file, imported as `styles`.
-- `src/globals/global.scss` and `src/app.css` are imported globally in `App.tsx`. `global.scss` sets the font and color for `h1`-`h6` and `p` at the element level, so those tags inherit styling everywhere.
-- `global.scss` also defines the SCSS variables for the type scale and palette (`$head1`, `$portred`, `$bgcolor`, and so on). They are not injected automatically: a module must `@import` the file to use them.
+- `src/globals/global.scss` defines the palette and fonts as CSS custom properties on `:root`, so modules use them without importing anything. Buttons use `--button`; yellow panels and highlights use `--accent`.
+- `global.scss` also provides the shared `.container`, `.section`, `.accent`, and `.button` classes, and base element styles for headings and `p`.
+- `App.tsx` imports `global.scss` before any component. That order lets a module override a shared class at equal specificity, so keep the import first.
 
 ### Deployment
 

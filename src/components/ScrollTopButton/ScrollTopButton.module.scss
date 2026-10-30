@@ -1,0 +1,30 @@
+.button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+
+  circle {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 2;
+  }
+}

@@ -1,0 +1,68 @@
+// Runs edge to edge rather than inside .container, so more capsules fit on wide screens
+.slider {
+  max-width: 1736px;
+  margin-inline: auto;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Lets every capsule stretch to the tallest one when a skill name wraps
+  .slide {
+    height: auto;
+    padding-inline: 8px;
+  }
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 196px;
+  height: 100%;
+  min-height: 347px;
+  margin-inline: auto;
+  padding: 24px 30px;
+  border: 1px solid var(--border);
+  border-radius: 300px;
+  text-align: center;
+
+  @media (max-width: 480px) {
+    padding-inline: 16px;
+  }
+}
+
+.iconWrap {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 136px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--panel);
+}
+
+.icon {
+  font-size: 4.375rem;
+
+  @media (max-width: 480px) {
+    font-size: 3.5rem;
+  }
+}
+
+.name {
+  margin: 40px 0 6px;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.area {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
