@@ -41,7 +41,7 @@ const Header = () => {
           </div>
           <Fade delay={3100}>
           <div className={styles.ctaContainer}>
-            <a href="public\Matayabas-Resume-2025.pdf" download>
+            <a href={`${import.meta.env.BASE_URL}Matayabas-Resume-2025.pdf`} download>
               <button className={styles.cta}>Download my CV</button>
             </a>
           </div>
