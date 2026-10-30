@@ -1,0 +1,57 @@
+[
+  {
+    "date": "Dec 2025 – Present",
+    "title": "Software Engineer",
+    "company": "Appwardtech",
+    "details": [
+      "Develop enterprise-level applications that monitor service outages region-wide, giving large conglomerate clients real-time visibility into disruptions across their service areas.",
+      "Build and maintain production infrastructure on AWS (EC2, S3, Amplify) to deploy, host, and scale client applications.",
+      "Secure API endpoints and design services for scalability, applying security best practices across the stack.",
+      "Accelerate feature delivery with agentic AI development using Claude while keeping code secure and maintainable."
+    ]
+  },
+  {
+    "date": "Dec 2025 – Jan 2026",
+    "title": "Full Stack Developer",
+    "company": "K Steak Unlimited",
+    "details": [
+      "Built a complete point-of-sale (POS) system with Next.js, PostgreSQL, and a REST API backend, deployed on the company's own local server.",
+      "Designed a modular, scalable architecture so an inventory module can be added without reworking the core system."
+    ]
+  },
+  {
+    "date": "Jun 2025 – Sep 2025",
+    "title": "Frontend Developer",
+    "company": "Imagine Web LLC",
+    "details": [
+      "Built and launched client websites with WordPress and Elementor, delivering each site within one month.",
+      "Designed page layouts and visual assets using Adobe Photoshop and Lightroom."
+    ]
+  },
+  {
+    "date": "Jun 2024 – Aug 2024",
+    "title": "Freelance Frontend Developer",
+    "company": "Zenith Solutions",
+    "details": [
+      "Developed a mobile-responsive company website with TypeScript and Next.js to showcase the company's services.",
+      "Tracked tasks and deliverables in Jira using project management practices."
+    ]
+  },
+  {
+    "date": "Mar 2023 – Aug 2024",
+    "title": "Full Stack Developer",
+    "company": "Arisen Labs",
+    "details": [
+      "Built full-stack web apps with Vue.js and Laravel, deployed via NGINX, Docker, and third-party hosting.",
+      "Digitized a manual pledge-tracking process into an automated system for recording and monitoring pledges."
+    ]
+  },
+  {
+    "date": "2022 – 2024",
+    "title": "Director and Developer",
+    "company": "SAMAHAN Systems Development, Ateneo de Davao",
+    "details": [
+      "Director from 2023 to 2024, after serving as a Developer from 2022 to 2023."
+    ]
+  }
+]

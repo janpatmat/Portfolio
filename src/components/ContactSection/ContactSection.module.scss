@@ -1,0 +1,117 @@
+.grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  align-items: center;
+  gap: 60px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 1.25;
+}
+
+.text {
+  margin-top: 25px;
+}
+
+.details {
+  display: grid;
+  gap: 22px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    line-height: 1.5;
+  }
+
+  a {
+    color: inherit;
+    overflow-wrap: anywhere;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.detailIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.detailLabel {
+  display: block;
+  color: var(--text);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// The third profile takes the full row
+.field:last-child {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.fieldBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 19px 20px 19px 30px;
+  background-color: var(--text);
+  color: var(--ink);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  svg {
+    flex-shrink: 0;
+    font-size: 1.125rem;
+  }
+}
+
+.cta {
+  margin-top: 35px;
+}

@@ -1,67 +1,111 @@
-//FONT SIZES
-$head1: 3.815rem;
-$head2: 3.052rem;
-$head3: 2.441rem;
-$head4: 1.953rem;
-$head5: 1.563rem;
-$head6: 1.25rem;
-$parasize: 1rem;
-$parasmall: 0.8rem;
-$paracomment: 0.64rem;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=Inter:wght@400;500;600&family=Syne:wght@500;600;700&display=swap');
 
-//COLORS
-$textwhite: white;
-$bgcolor: #181716;
-$portred: #F55454;
-$portindigo: #615EFF;
-$portgreen: #44FF78;
-$portpink: #EF5DA8;
+:root {
+  //COLORS
+  --bg: #032628;
+  --accent: #e8c83e;
+  --button: #8fa89b; // muted sage, used only for buttons
+  --ink: #070707;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --border: rgba(255, 255, 255, 0.1);
+  --panel: #0b3a3c;
+  --panel-hover: #124a4c;
 
-//FONTS
-//RULE: font-family: 'Noto Sans Georgian', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100;200;300;400;700&display=swap');
-
-h1{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head1;
-    color: $textwhite;
-}
-h2{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head2;
-    color: $textwhite;
-}
-h3{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head3;
-    color: $textwhite;
-}
-h4{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head4;
-    color: $textwhite;
-}
-h5{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head5;
-    color: $textwhite;
-}
-h6{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $head6;
-    color: $textwhite;
+  //FONTS
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-number: 'DM Sans', sans-serif;
 }
 
-.gridHeader{
-    font-size: $head3;
-    color: black;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-p{
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: $parasize;
-    color: $textwhite;
+
+html {
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 }
-body{
-    background-color: $bgcolor;
-    margin: 0;
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section {
+  padding-top: 160px;
+
+  @media (max-width: 768px) {
+    padding-top: 100px;
+  }
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background-color: var(--button);
+  box-shadow: 4px 4px 0 var(--text);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--text);
+  }
 }

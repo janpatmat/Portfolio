@@ -1,110 +1,138 @@
-.container {
-    width: 100vw;
-    height: 100vh; // Always take full screen height
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 2rem;
-    box-sizing: border-box;
-  }
-  
-  .innerContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex: 1; // take all available vertical space
-    text-align: center;
-  
-    @media (max-width: 768px) {
-      padding: 1rem;
-    }
-  }
-  
-  .hakdog {
-    font-size: clamp(3rem, 8vw, 8rem); /* Make header larger on smaller screens */
-    margin: 0;
-  }
-  .parContainer {
-    width: 50%;
-  }
-  
+.hero {
+  position: relative;
+  padding-top: 198px;
+
   @media (max-width: 768px) {
-    .parContainer {
-      display: none;  /* Hide the paragraph on smaller screens */
-    }
+    padding-top: 130px;
   }
-  
-  
-  .iconRow {
-    display: flex;
-    justify-content: center; /* Centers the icons horizontally */
-    gap: 2rem; /* Adds space between icons */
-    margin-top: 2rem; /* Adds space between the header and icons */
-  }
-  
-  .icon {
-    font-size: 4rem; /* Default icon size */
-    color: white; /* Make icons white */
-    cursor: pointer;
-    transition: color 0.3s ease;
-  
-    &:hover {
-      color: #615eff; /* Change color on hover */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .icon {
-      font-size: 3rem; /* Reduce icon size on medium screens */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .icon {
-      font-size: 2rem; /* Further reduce icon size on small screens */
-    }
-  }
-  
-  
-  .ctaContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2rem;
-  }
-  
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.greeting {
+  margin-bottom: 5px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.title {
+  max-width: 1040px;
+  text-wrap: balance;
+  font-size: clamp(2.75rem, 6.25vw, 5.625rem);
+  font-weight: 700;
+  line-height: 1.055;
+}
+
+.titleLine {
+  display: block;
+}
+
+.cta {
+  margin-top: 40px;
+}
+
+// One page-load moment: the intro rises in, in reading order
+@media (prefers-reduced-motion: no-preference) {
+  .greeting,
+  .title,
   .cta {
-    border: none;
-    border-radius: 40px;
-    padding: 1.2rem 2.5rem; /* Make the button slightly bigger */
-    background-color: #615EFF;
-    color: white;
-    font-weight: bold;
-    font-size: 1.7rem; /* Slightly bigger font size for the button */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    @media (max-width: 768px) {
-      font-size: 1.6rem; /* Slightly smaller font size for mid-size screens */
-      padding: 1rem 2rem;
-    }
-  
-    @media (max-width: 480px) {
-      font-size: 1.4rem; /* Slightly smaller font size for mobile screens */
-      padding: 0.9rem 1.8rem;
-    }
-  
-    &:hover {
-      background-color: red;
-    }
-  
-    &:focus,
-    &:active {
-      background-color: white;
-      color: #615EFF;
-    }
+    animation: rise 0.7s ease both;
   }
-  
+
+  .title {
+    animation-delay: 0.1s;
+  }
+
+  .cta {
+    animation-delay: 0.25s;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.shape {
+  position: absolute;
+  background-color: var(--accent);
+}
+
+.shapeLeft {
+  top: 300px;
+  left: 7%;
+  width: 11px;
+  height: 11px;
+  transform: rotate(45deg);
+}
+
+.shapeRight {
+  top: 450px;
+  right: 7%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+@media (max-width: 960px) {
+  .shape {
+    display: none;
+  }
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 80%;
+  margin: 70px auto 0;
+  padding: 35px 40px;
+  border-radius: 100px;
+  background-color: var(--accent);
+  color: var(--ink);
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 28px 20px;
+    border-radius: 40px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.statValue {
+  margin: 0;
+  font-family: var(--font-number);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.statLabel {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  @media (min-width: 960px) {
+    font-size: 1rem;
+  }
+}

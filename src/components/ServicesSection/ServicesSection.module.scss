@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: 45px 50px;
+  border-radius: 15px;
+  background-color: var(--accent);
+  color: var(--ink);
+
+  @media (max-width: 480px) {
+    padding: 36px 24px;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ink);
+  color: var(--text);
+  font-size: 1.375rem;
+}
+
+.title {
+  margin: 24px 0 10px;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 600;
+}

@@ -1,67 +1,53 @@
 import React from 'react';
+import { FaArrowRight, FaCode } from 'react-icons/fa';
 import styles from './FeaturedProjectComponent.module.scss';
 
 interface FeaturedProjectProps {
   title: string;
+  category: string;
   description: string;
-  contributionTitle: string;
   contribution: string;
-  functionTitle: string;
-  functionDescription: string;
   imageAlt?: string;
   imageUrl?: string;
-  url?: string;  // Make sure to include 'url' as optional here
+  url?: string;
+  offline?: boolean;
 }
 
 
 const FeaturedProjectComponent: React.FC<FeaturedProjectProps> = ({
   title,
+  category,
   description,
-  contributionTitle,
   contribution,
-  functionTitle,
-  functionDescription,
   imageAlt,
   imageUrl,
-  url
+  url,
+  offline
 }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.detailSection}>
-        <h1>{title}</h1>
-        <p>{description}</p>
-
-        <h4>{contributionTitle}</h4>
-        <p>{contribution}</p>
-
-        <h4>{functionTitle}</h4>
-        <p>{functionDescription}</p>
+    <article className={styles.card}>
+      <div className={styles.picture}>
+        {imageUrl ? (
+          <img src={imageUrl} alt={imageAlt || 'Project visual'} loading="lazy" />
+        ) : (
+          <FaCode className={styles.pictureIcon} aria-hidden="true" />
+        )}
       </div>
 
-      <div className={styles.picover}>
-        <div className={styles.pictureSection}>
-          {imageUrl ? <img src={imageUrl} alt={imageAlt || 'Project visual'} /> : <h1>Picture</h1>}
-        </div>
+      <div className={styles.body}>
+        <span className={styles.category}>{category}</span>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.description}>{contribution}</p>
+
+        {url && (
+          <a className={styles.link} href={url} target="_blank" rel="noopener noreferrer">
+            Visit Project <FaArrowRight aria-hidden="true" />
+          </a>
+        )}
+        {offline && <span className={styles.offline}>Website is no longer up</span>}
       </div>
-
-      {/* Conditionally render the button if 'url' is provided */}
-      {url ? (
-  // If URL exists, show the "Visit Project" button
-  <div className={styles.buttonContainer}>
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <button className={styles.projectButton}>Visit Project</button>
-    </a>
-  </div>
-) : (
-  // If URL doesn't exist, show a red button with "Website is no longer up"
-  <div className={styles.buttonContainer}>
-    <button className={`${styles.projectButton} ${styles.disabledButton}`}>
-      Website is no longer up
-    </button>
-  </div>
-)}
-
-    </div>
+    </article>
   );
 };
 
