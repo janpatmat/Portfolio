@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=Inter:wght@400;500;600&family=Syne:wght@500;600;700&display=swap');
-
+// Instrument Serif and Geist load from Google Fonts in index.html
 :root {
   //COLORS
-  --bg: #032628;
-  --accent: #e8c83e;
-  --button: #8fa89b; // muted sage, used only for buttons
-  --ink: #070707;
-  --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.65);
-  --border: rgba(255, 255, 255, 0.1);
-  --panel: #0b3a3c;
-  --panel-hover: #124a4c;
+  --bg: #050505;
+  --surface: #111111;
+  --line: rgba(242, 239, 233, 0.1);
+  --text: #f2efe9;
+  --muted: #8d8983;
+  --accent: #ff5a36; // ember, used sparingly: hero "AI", link and menu hovers, AI placeholder glow
+  --paper: #f2efe9; // cards, service panels, the experience section, the detail panel
+  --ink: #0a0a0a; // text on paper
+  --ink-muted: #6f6a63;
 
   //FONTS
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-number: 'DM Sans', sans-serif;
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Geist', system-ui, sans-serif;
 }
 
 *,
@@ -24,21 +22,35 @@
   box-sizing: border-box;
 }
 
+// Horizontal overflow is clipped on html, not body: if body clipped it while html's overflow
+// changes (an open dialog, Lenis stopped), body would become the scroller and unpin every stage
 html {
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
+  overflow-x: clip;
+  background-color: var(--bg);
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   background-color: var(--bg);
-  color: var(--muted);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.75;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+figure {
+  margin: 0;
 }
 
 h1,
@@ -47,15 +59,37 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: inherit;
+  text-wrap: balance;
 }
 
-p {
-  margin: 0;
+a {
+  color: inherit;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+// Hidden until a keyboard user tabs to it
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+  }
 }
 
 img {
@@ -68,44 +102,83 @@ img {
   outline-offset: 3px;
 }
 
-.container {
-  width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 15px;
+// Containers focused only by script (the skip link's target) don't need a ring
+[tabindex='-1']:focus {
+  outline: none;
 }
 
-.section {
-  padding-top: 160px;
-
-  @media (max-width: 768px) {
-    padding-top: 100px;
-  }
+// Paper surfaces (experience, service panels, cards, the detail panel) get an ink focus ring
+.on-paper :focus-visible,
+.on-paper:focus-visible {
+  outline-color: var(--ink);
 }
 
-.accent {
-  color: var(--accent);
+// Display type: section headlines, big numbers, the menu
+.serif {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 40px;
-  border: 1px solid var(--ink);
-  border-radius: 4px;
-  background-color: var(--button);
-  box-shadow: 4px 4px 0 var(--text);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.125rem;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Each section is a tall .chapter (it carries the id) with a .stage inside. With motion on, the
+// stage pins to the viewport while the chapter scrolls past; without it, sections flow normally.
+.chapter {
+  position: relative;
+}
+
+.stage {
+  position: relative;
+  min-height: 100vh;
+}
+
+html.motion .stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.label {
+  position: absolute;
+  top: 26px;
+  z-index: 6;
+  font-size: 12px;
   font-weight: 600;
-  line-height: 1;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  &:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 0 0 0 var(--text);
+.label-l {
+  left: 32px;
+}
+
+.label-r {
+  right: 32px;
+}
+
+@media (max-width: 768px) {
+  .label {
+    top: 18px;
+  }
+
+  .label-l {
+    left: 16px;
+  }
+
+  .label-r {
+    right: 16px;
   }
 }

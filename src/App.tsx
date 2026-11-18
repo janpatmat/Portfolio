@@ -1,6 +1,6 @@
 // Loaded first so component modules can override the shared classes
 import './globals/global.scss'
-import Navbar from './components/Navbar/Navbar'
+import SiteNav from './components/SiteNav/SiteNav'
 import Header from './components/Header/Header'
 import AboutmeSection from './components/AboutmeSection/AboutmeSection'
 import ExperienceSection from './components/ExperienceSection/ExperienceSection'
@@ -8,14 +8,20 @@ import ServicesSection from './components/ServicesSection/ServicesSection'
 import SkillsSection from './components/SkillsSection/SkillsSection'
 import ProjectContainerSection from './components/ProjectContainerSection/ProjectContainerSection'
 import ContactSection from './components/ContactSection/ContactSection'
-import Footer from './components/Footer/Footer'
-import ScrollTopButton from './components/ScrollTopButton/ScrollTopButton'
+import { useEffect } from 'react'
+import { scrollToHash, startMotion } from './hooks/motion/loop'
 
 function App() {
+  useEffect(() => {
+    const stopMotion = startMotion()
+    scrollToHash()
+    return stopMotion
+  }, [])
+
   return (
     <>
-      <Navbar />
-      <main>
+      <SiteNav />
+      <main id="main" tabIndex={-1}>
         <Header />
         <AboutmeSection />
         <ExperienceSection />
@@ -24,8 +30,6 @@ function App() {
         <ProjectContainerSection />
         <ContactSection />
       </main>
-      <Footer />
-      <ScrollTopButton />
     </>
   )
 }

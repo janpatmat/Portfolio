@@ -1,68 +1,117 @@
-// Runs edge to edge rather than inside .container, so more capsules fit on wide screens
-.slider {
-  max-width: 1736px;
-  margin-inline: auto;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  // Lets every capsule stretch to the tallest one when a skill name wraps
-  .slide {
-    height: auto;
-    padding-inline: 8px;
-  }
+:global(html.motion) .skills {
+  height: 230vh;
 }
 
-.skill {
+// A column: headline at the top, groups below it, so tiles can never ride up over the headline
+.stage {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 196px;
-  height: 100%;
-  min-height: 347px;
-  margin-inline: auto;
-  padding: 24px 30px;
-  border: 1px solid var(--border);
-  border-radius: 300px;
-  text-align: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 9vh 32px 96px;
 
-  @media (max-width: 480px) {
-    padding-inline: 16px;
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 9vh 16px 96px;
   }
 }
 
-.iconWrap {
+.title {
+  font-size: clamp(44px, min(5.4vw, 10vh), 88px);
+
+  @media (max-width: 768px) {
+    font-size: min(40px, 6vh);
+  }
+}
+
+// Five columns whose tops sit at 36vh, as in the prototype; tiles stack up from the bottom
+.groups {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+
+  :global(html.motion) & {
+    height: calc(64vh - 96px);
+  }
+
+  // On phones the groups stack as rows and fill the space under the headline
+  @media (max-width: 768px) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: safe flex-end;
+    gap: clamp(4px, 1.1vh, 12px);
+    min-height: 0;
+
+    :global(html.motion) & {
+      height: auto;
+    }
+  }
+}
+
+.group {
   display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 136px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: var(--panel);
-}
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
 
-.icon {
-  font-size: 4.375rem;
+  h3 {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+  }
 
-  @media (max-width: 480px) {
-    font-size: 3.5rem;
+  @media (max-width: 768px) {
+    gap: 4px;
+    padding-left: 0;
+    border-left: 0;
+
+    h3 {
+      font-size: 12px;
+    }
   }
 }
 
-.name {
-  margin: 40px 0 6px;
-  font-size: 1.25rem;
-  line-height: 1.3;
+// column-reverse puts the first tile at the bottom of the column
+.tiles {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  gap: clamp(4px, 0.9vh, 8px);
+
+  @media (max-width: 768px) {
+    flex-flow: row wrap;
+    gap: 5px;
+  }
 }
 
-.area {
-  color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  text-transform: uppercase;
+.tile {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: clamp(6px, 1.1vh, 10px) 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #151515;
+  font-size: clamp(12px, 1.6vh, 14px);
+  white-space: nowrap;
+  will-change: transform;
+
+  i {
+    flex: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    padding: clamp(5px, 0.95vh, 8px) 10px;
+    font-size: clamp(11px, 1.6vh, 13px);
+    line-height: 1.2;
+  }
 }

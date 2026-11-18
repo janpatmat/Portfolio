@@ -1,0 +1,165 @@
+// The dialog covers the viewport and is its own dimmed backdrop, so a click outside the
+// panel lands on the dialog element itself
+.detail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(6px);
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+
+  &[open] {
+    display: grid;
+    place-items: center;
+  }
+
+  &::backdrop {
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.open {
+  opacity: 1;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  width: min(92vw, 980px);
+  max-height: 84vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border-radius: 22px;
+  background: var(--paper);
+  transform: translateY(40px) scale(0.97);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  .open & {
+    transform: none;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+  }
+}
+
+.media {
+  min-height: 360px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 0;
+    height: 240px;
+  }
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: inherit;
+  background: radial-gradient(circle at 30% 25%, var(--accent) 0, rgba(255, 90, 54, 0) 60%), #1b1b1b;
+  color: #fff;
+  font-size: 96px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 34px;
+
+  h3 {
+    font-size: clamp(40px, 5vw, 56px);
+  }
+
+  p {
+    color: #36332e;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px 20px 32px;
+  }
+}
+
+.key {
+  color: var(--ink-muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+
+  a,
+  button {
+    min-height: 44px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 999px;
+    font: 600 14px var(--font-body);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  a {
+    display: inline-grid;
+    place-items: center;
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  button {
+    background: rgba(0, 0, 0, 0.07);
+    color: var(--ink);
+  }
+}
+
+.offline {
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail,
+  .panel {
+    transition: none;
+  }
+}

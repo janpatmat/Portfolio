@@ -1,138 +1,133 @@
-.hero {
-  position: relative;
-  padding-top: 198px;
+:global(html.motion) .hero {
+  height: 230vh;
+}
 
-  @media (max-width: 768px) {
-    padding-top: 130px;
+.stage {
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.tiles {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.tile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #141414;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  will-change: transform, opacity;
+
+  i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
   }
 }
 
-.intro {
+// Centred in the space above the stats row, so the two never meet on short laptop screens
+.copy {
+  position: absolute;
+  inset: 0 0 150px;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 0 16px;
   text-align: center;
+  pointer-events: none;
 }
 
-.greeting {
-  margin-bottom: 5px;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.4;
+.hello {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .title {
-  max-width: 1040px;
-  text-wrap: balance;
-  font-size: clamp(2.75rem, 6.25vw, 5.625rem);
-  font-weight: 700;
-  line-height: 1.055;
+  font-size: clamp(64px, min(15.5vw, 23vh), 250px);
 }
 
-.titleLine {
+// Each line clips its letters while they rise into place
+.line {
   display: block;
+  padding-top: 0.06em;
+  overflow: hidden;
 }
 
-.cta {
-  margin-top: 40px;
-}
+.ch {
+  display: inline-block;
+  transform: translateY(110%) rotate(8deg);
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-// One page-load moment: the intro rises in, in reading order
-@media (prefers-reduced-motion: no-preference) {
-  .greeting,
-  .title,
-  .cta {
-    animation: rise 0.7s ease both;
+  .loaded & {
+    transform: none;
   }
 
-  .title {
-    animation-delay: 0.1s;
-  }
-
-  .cta {
-    animation-delay: 0.25s;
+  :global(html:not(.motion)) & {
+    transform: none;
+    transition: none;
   }
 }
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-}
+.sub {
+  margin-top: 18px;
+  font-size: clamp(18px, 2vw, 26px);
 
-.shape {
-  position: absolute;
-  background-color: var(--accent);
-}
-
-.shapeLeft {
-  top: 300px;
-  left: 7%;
-  width: 11px;
-  height: 11px;
-  transform: rotate(45deg);
-}
-
-.shapeRight {
-  top: 450px;
-  right: 7%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-}
-
-@media (max-width: 960px) {
-  .shape {
-    display: none;
+  em {
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 1.35em;
   }
 }
 
 .stats {
+  position: absolute;
+  right: 32px;
+  bottom: 96px;
+  left: 32px;
+  z-index: 2;
   display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  width: 80%;
-  margin: 70px auto 0;
-  padding: 35px 40px;
-  border-radius: 100px;
-  background-color: var(--accent);
-  color: var(--ink);
-  text-align: center;
+  justify-content: space-between;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+
+  dt {
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 44px;
+    line-height: 1;
+  }
 
   @media (max-width: 768px) {
-    width: 100%;
-    padding: 28px 20px;
-    border-radius: 40px;
-  }
+    right: 16px;
+    bottom: 96px;
+    left: 16px;
+    gap: 12px;
 
-  @media (max-width: 480px) {
-    flex-direction: column;
-  }
-}
+    dt {
+      font-size: 12px;
+    }
 
-.stat {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-}
-
-.statValue {
-  margin: 0;
-  font-family: var(--font-number);
-  font-size: clamp(2rem, 3.4vw, 3rem);
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.statLabel {
-  margin-top: 6px;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-
-  @media (min-width: 960px) {
-    font-size: 1rem;
+    dd {
+      font-size: 34px;
+    }
   }
 }

@@ -1,0 +1,127 @@
+.pill {
+  position: fixed;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(22, 22, 22, 0.72);
+  backdrop-filter: blur(14px);
+  transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.mark,
+.menuButton,
+.cv {
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
+}
+
+.mark {
+  width: 44px;
+  font-family: var(--font-display);
+  font-size: 20px;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.menuButton,
+.cv {
+  padding: 0 18px;
+  font: 600 14px var(--font-body);
+}
+
+.menuButton {
+  min-width: 76px;
+  background: transparent;
+  color: var(--text);
+}
+
+.cv {
+  background: var(--text);
+  color: var(--ink);
+}
+
+// Revealed top-down with a clip-path wipe. Visibility flips only after the wipe closes,
+// so hidden links drop out of the tab order without cutting the animation short.
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8vw 80px;
+  background: rgba(5, 5, 5, 0.96);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s linear 0.7s;
+}
+
+.open {
+  clip-path: inset(0 0 0 0);
+  visibility: visible;
+  transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s;
+}
+
+.link {
+  display: block;
+  width: fit-content;
+  font-size: clamp(44px, 7vw, 104px);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 0.6s ease, opacity 0.6s ease, color 0.2s ease;
+
+  .open & {
+    opacity: 1;
+    transform: none;
+  }
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  small {
+    margin-right: 14px;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 13px;
+    vertical-align: top;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu,
+  .open,
+  .link {
+    transition-duration: 0s;
+    transition-delay: 0s;
+  }
+}
